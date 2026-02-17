@@ -20,7 +20,7 @@ The player must jump over monsters, collect coins, and survive as long as possib
 ## 🚀 Live Demo
 
 🔗 Deployed on Netlify  
-(Add your Netlify live link here)
+https://celadon-heliotrope-af4e3d.netlify.app/
 
 ---
 

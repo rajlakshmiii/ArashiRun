@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arashi Run - Enhanced Edition</title>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div id="startScreen">
+  <div class="start-content">
+    <h1 class="game-title">ARASHI RUN</h1>
+    <p class="game-subtitle">Time to become a ninja</p>
+    <button class="play-button" id="playButton">PLAY</button>
+  </div>
+</div>
+
+<!-- Instructions Screen -->
+<div id="instructionsScreen" class="hidden">
+  <div class="instructions-overlay">
+    <h1 class="instructions-title">HOW TO PLAY</h1>
+    
+    <div class="instructions-container">
+      <div class="instructions-section">
+        <h2 class="section-title">🎮 CONTROLS</h2>
+        <div class="control-grid">
+          <div class="control-item">
+            <div class="key-box">↑ / SPACE</div>
+            <div class="control-desc">Jump (Hold for higher jump)</div>
+          </div>
+          <div class="control-item">
+            <div class="key-box">← →</div>
+            <div class="control-desc">Move Left/Right</div>
+          </div>
+          <div class="control-item">
+            <div class="key-box">F</div>
+            <div class="control-desc">Throw Sword</div>
+          </div>
+          <div class="control-item">
+            <div class="key-box">D</div>
+            <div class="control-desc">Dash (10s cooldown)</div>
+          </div>
+          <div class="control-item">
+            <div class="key-box">S</div>
+            <div class="control-desc">Shield (5s duration)</div>
+          </div>
+          <div class="control-item">
+            <div class="key-box">ESC</div>
+            <div class="control-desc">Pause / Settings</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="instructions-section">
+        <h2 class="section-title">⚡ COMBO SYSTEM</h2>
+        <div class="combo-explanation">
+          <p><strong>Build combos</strong> by collecting coins and killing monsters!</p>
+          <p>🔥 <strong>Each combo action</strong> increases your score multiplier</p>
+          <p>💰 <strong>Higher combo = More points!</strong> (Max 3x multiplier)</p>
+          <p>⏰ <strong>Combo resets</strong> after 3 seconds of no action</p>
+          <div class="combo-example">
+            <span class="combo-badge">0x</span> → 
+            <span class="combo-badge">5x</span> → 
+            <span class="combo-badge">10x</span> → 
+            <span class="combo-badge gold">20x MAX!</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="instructions-section">
+        <h2 class="section-title">👾 ENEMIES</h2>
+        <div class="enemy-grid">
+          <div class="enemy-item">
+            <div class="enemy-emoji">👹</div>
+            <div class="enemy-name">Ground Monster</div>
+            <div class="enemy-desc">Walks on ground - Jump to avoid</div>
+          </div>
+          <div class="enemy-item">
+            <div class="enemy-emoji">🦇</div>
+            <div class="enemy-name">Flying Monster</div>
+            <div class="enemy-desc">Flies in air - Duck to avoid</div>
+          </div>
+          <div class="enemy-item">
+            <div class="enemy-emoji">⚡</div>
+            <div class="enemy-name">Speed Demon</div>
+            <div class="enemy-desc">Moves very fast!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="instructions-section">
+        <h2 class="section-title">🎁 POWER-UPS</h2>
+        <div class="powerup-grid">
+          <div class="powerup-item">
+            <div class="powerup-emoji">🛡️</div>
+            <div class="powerup-name">Shield</div>
+            <div class="powerup-desc">Blocks 1 hit</div>
+          </div>
+          <div class="powerup-item">
+            <div class="powerup-emoji">⏰</div>
+            <div class="powerup-name">Slow Motion</div>
+            <div class="powerup-desc">Slows game (5s)</div>
+          </div>
+          <div class="powerup-item">
+            <div class="powerup-emoji">🧲</div>
+            <div class="powerup-name">Magnet</div>
+            <div class="powerup-desc">Attracts coins</div>
+          </div>
+          <div class="powerup-item">
+            <div class="powerup-emoji">2️⃣</div>
+            <div class="powerup-name">2x Score</div>
+            <div class="powerup-desc">Doubles multiplier</div>
+          </div>
+          <div class="powerup-item">
+            <div class="powerup-emoji">❤️</div>
+            <div class="powerup-name">Extra Life</div>
+            <div class="powerup-desc">Gain 1 life</div>
+          </div>
+          <div class="powerup-item">
+            <div class="powerup-emoji">⚔️</div>
+            <div class="powerup-name">Multi Shot</div>
+            <div class="powerup-desc">3 swords (10s)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="instructions-section">
+        <h2 class="section-title">🎯 TIPS</h2>
+        <div class="tips-list">
+          <div class="tip-item">💡 Hold jump button longer to jump higher</div>
+          <div class="tip-item">💡 Use dash to kill monsters and escape danger</div>
+          <div class="tip-item">💡 Maintain combo for maximum points</div>
+          <div class="tip-item">💡 Shield saves your life - use it wisely!</div>
+          <div class="tip-item">💡 Flying monsters need precise timing</div>
+          <div class="tip-item">💡 Speed demons are worth more points!</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="start-game-btn" id="startGameBtn">START GAME</button>
+    <button class="back-btn" id="backBtn">BACK</button>
+  </div>
+</div>    
+
+<!-- Settings Menu -->
+<div id="settingsMenu" class="hidden">
+  <div class="settings-overlay">
+    <h2 class="settings-title">SETTINGS</h2>
+    
+    <div class="settings-options">
+      <div class="setting-item">
+        <span class="setting-label">🔊 BACKGROUND MUSIC</span>
+        <button id="musicToggle" class="toggle-btn">ON</button>
+      </div>
+      
+      <div class="settings-divider"></div>
+      
+      <button class="settings-btn" id="resumeBtn">
+        <span class="btn-icon">▶️</span>
+        <span>RESUME GAME</span>
+      </button>
+      
+      <button class="settings-btn" id="restartFromSettings">
+        <span class="btn-icon">🔄</span>
+        <span>RESTART</span>
+      </button>
+      
+      <button class="settings-btn danger" id="quitFromSettings">
+        <span class="btn-icon">🚪</span>
+        <span>QUIT TO MENU</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="game">
+
+
+  <button id="settingsBtn" class="settings-toggle">⚙️</button> 
+  
+  <!-- Game UI -->
+  <div id="gameUI">
+    <div class="ui-left">
+      <div class="score-item">
+        <img src="assets/coin.png" class="coin-icon-img">
+        <span id="distance">0</span>
+        <span class="label">DISTANCE</span>
+      </div>
+      <div class="score-item">
+        <img src="assets/coin.png" class="coin-icon-img">
+        <span id="highScore">0</span>
+        <span class="label">HIGH SCORE</span>
+      </div>
+      <div id="lives">
+        <img src="assets/life.png" class="heart">
+        <img src="assets/life.png" class="heart">
+        <img src="assets/life.png" class="heart">
+        <img src="assets/life.png" class="heart">
+        <img src="assets/life.png" class="heart">
+      </div>
+    </div>
+    
+    <div class="ui-center">
+      <div id="timer">00:00</div>
+      <div id="combo">0x</div>
+    </div>
+    
+    <div class="ui-right">
+      <div class="ability-status">
+        <div style="font-size: 12px; color: #aaa;">DASH (D)</div>
+        <div id="dashCooldown">READY</div>
+      </div>
+      <div class="ability-status">
+        <div style="font-size: 12px; color: #aaa;">SHIELD (S)</div>
+        <div id="shieldStatus">INACTIVE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="gameOver" class="hidden">
+    <div class="game-over-overlay">
+      <h1 class="game-over-title">GAME OVER</h1>
+      
+      <div class="game-over-monster-top">
+        <img src="assets/monster.png" alt="monster">
+      </div>
+      
+      <div class="stats-box">
+        <div class="stat-row">
+          <span class="stat-label">DISTANCE</span>
+          <span class="stat-value" id="finalDistance">0</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">COINS</span>
+          <span class="stat-value" id="finalCoins">0</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">KILLS</span>
+          <span class="stat-value" id="finalKills">0</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">MAX COMBO</span>
+          <span class="stat-value" id="finalCombo">0</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">HIGH SCORE</span>
+          <span class="stat-value" id="finalHighScore">0</span>
+        </div>
+      </div>
+      
+      <div class="game-over-ground">
+        <img src="assets/ninjarun.png" id="gameOverNinja" alt="ninja">
+        
+        <div class="game-over-monsters">
+          <img src="assets/monster.png" class="ground-monster" alt="monster">
+          <img src="assets/monster.png" class="ground-monster" alt="monster">
+        </div>
+      </div>
+      
+      <div class="button-container">
+        <button id="restartBtn" class="game-btn play-btn">PLAY AGAIN</button>
+        <button id="mainMenuBtn" class="game-btn quit-btn">QUIT</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Elements -->
+  <img src="assets/ninjarun.png" id="ninja">
+  
+  <!-- Coins Container -->
+  <div id="coinsContainer"></div>
+  
+  <!-- Monsters Container -->
+  <div id="monstersContainer"></div>
+  
+  <!-- Powerups Container -->
+  <div id="powerupsContainer"></div>
+</div>
+
+<script src="script.js"></script>
+
+<!-- Audio Elements -->
+
+<audio id="bgMusic" src="assets/bg.mp3" loop></audio>
+
+<audio id="bgMusic" loop>
+  <source src="assets/music.mp3" type="audio/mpeg">
+</audio>
+
+
+</body>
+</html>
